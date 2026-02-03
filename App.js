@@ -124,3 +124,27 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // root.render(jsxheading);
 root.render([<HeadingComponent1 key={1}/>])
+
+
+// App Planing is First Thing
+
+/*
+*
+*
+1 Header
+==============
+1.1 Logo
+1.2 Nav Links
+1.3 Cart
+===============
+2 Body
+2.1 Search and Search Button
+2.2 Card Container
+2.2.1 Cards
+3 Footer
+3.1 CopyRight
+3.2 Footer Links
+3.3 Addresses
+3.4 Contact 
+*
+*/
