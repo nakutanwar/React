@@ -84,3 +84,10 @@ body{
     float: right;
     word-wrap: break-word;
 }
+.filter-container{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   margin: 10px 0px;
+}
