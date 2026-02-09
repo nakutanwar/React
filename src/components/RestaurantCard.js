@@ -7,7 +7,7 @@ const CardStyle = {
 
 const RestaurentCard = (props)=>{
   const {resData} = props;
-  const {name,cuisines,locality,costForTwo,avgRating,slaString,cloudinaryImageId} = resData;
+  const {name,cuisines,locality,costForTwo,avgRating,slaString,cloudinaryImageId,sla} = resData;
 //   console.log(props);
   return(
     <div className="card">
@@ -23,7 +23,7 @@ const RestaurentCard = (props)=>{
       <h4>{locality}</h4>
       <h5>{costForTwo}</h5>
       <h6>{avgRating}</h6>
-      <p>{slaString}</p>
+      <p>{sla?.slaString}</p>
     </div>
   )
 }
