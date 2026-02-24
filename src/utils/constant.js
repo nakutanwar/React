@@ -3,6 +3,8 @@ export const LOGO_URL =
 export const CDN_URL = 
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
+export const MENU_API = 
+    "https://corsproxy.io/https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9985859&lng=77.59202060000001&restaurantId="
 // 2 types of export 
 // 1 default
 // 2 named 

@@ -73,8 +73,6 @@ import {<variable/component>} from path
 -useState() => Superpowerful State variable in reactVariable in react
 -useEffect()
 
-
-
-
-
-
+# 2 types of Routing in Web Apps
+- Client Side Routing
+- Server Side Routing

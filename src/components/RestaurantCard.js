@@ -7,7 +7,7 @@ const CardStyle = {
 
 const RestaurentCard = (props)=>{
   const {resData} = props;
-  const {name,cuisines,locality,costForTwo,avgRating,slaString,cloudinaryImageId,sla} = resData;
+  const {name,cuisines,locality,costForTwo,avgRating,slaString,cloudinaryImageId,sla} = resData?.info;
 //   console.log(props);
   return(
     <div className="card">

@@ -2,7 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 // const parent = React.createElement("div", { id: "parent", key:"parent" }, [
 //   React.createElement("div", { id: "child1", key:'sub-parent' }, [
@@ -53,7 +57,6 @@ import Body from "./components/Body";
 
 // JSX => Babel transpiles it to  React.createElement => ReactElement-JS Object => HTMLElement(render)
 
-
 // console.log(jsxheading);
 
 // React Component
@@ -103,11 +106,9 @@ import Body from "./components/Body";
 // )
 // React Element
 
-
 // const title = (
 //   <span>React Span Element</span>
 // )
-
 
 // const heading = (
 //   <div id="container">
@@ -125,22 +126,12 @@ import Body from "./components/Body";
 
 //Container App Component Top Level Component
 
-
-
-
-
-
 // Via Destructuring and this called Destructuring on fly
 // const RestaurentCard = ({resName,cuisine})=>{
 
-
 // not using key as id (not acceptable) is less than <<<<<<<< INDEX AS Key <<<< Unique Identifier (best practice)
 
-
-
-
-
-const AppLayout = () =>{
+const AppLayout = () => {
   // console.log(<Body />);
   return (
     <div className="Container">
@@ -148,12 +139,29 @@ const AppLayout = () =>{
       //Body
       //Footer */}
       <Header />
-      <Body />
+      <Outlet />
+      {/* <Body /> */}
     </div>
-  )
-}
+  );
+};
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      { path: "/", element: <Body /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+      { path: '/restaurants/:resId', element:<RestaurantMenu />}
+    ],
+    errorElement: <Error />,
+  }
+  // { path: "/about", element: <About /> },
+  // { path: "/contact", element: <Contact /> },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(jsxheading);
-root.render([<AppLayout key={1} />])
+// root.render([<AppLayout key={1} />])
+root.render(<RouterProvider router={appRouter} />);
