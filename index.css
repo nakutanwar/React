@@ -118,3 +118,9 @@ body{
   }
    
 }
+
+.user-card{
+   border:solid 1px #000000;
+   padding: 10px;
+   margin:10px;
+}

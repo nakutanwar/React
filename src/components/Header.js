@@ -10,7 +10,7 @@ const Header = ()=>{
     // if dependency array is empty = [] => useEffect is called on initial render and called once
     // if dependency array is updated(btnnamereact) than the useEffect will be called
     useEffect(()=>{
-      console.log('Use Effect Called');
+      // console.log('Use Effect Called');
     }, [btnNameReact]);
 
 
