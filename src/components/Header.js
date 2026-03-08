@@ -6,7 +6,7 @@ const Header = ()=>{
     // let btnName = 'Login';
 
     let [btnNameReact,setBtnNameReact] = useState("Login")
-    //If no Dependency Array => useEffect id called on every render 
+    //If no Dependency Array => useEffect is called on every render 
     // if dependency array is empty = [] => useEffect is called on initial render and called once
     // if dependency array is updated(btnnamereact) than the useEffect will be called
     useEffect(()=>{
