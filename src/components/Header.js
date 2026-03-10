@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = ()=>{
     // let btnName = 'Login';
-
+    const onlineStatus = useOnlineStatus();
     let [btnNameReact,setBtnNameReact] = useState("Login")
     //If no Dependency Array => useEffect is called on every render 
     // if dependency array is empty = [] => useEffect is called on initial render and called once
@@ -22,10 +23,12 @@ const Header = ()=>{
       <div className="nav-items">
         <ul>
           <li>
+            Online Status : {onlineStatus ? "✅" : "🔴" }
+          </li>
+          <li>
             <Link to="/">
             Home
             </Link>
-            
           </li>
           <li>
             {/* Never use anchor tag it reloads whole page */}

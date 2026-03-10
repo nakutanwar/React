@@ -8,6 +8,14 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 
+// chunking
+// code splliting
+// dynamic bundling
+// lazy loading
+// on demand loading
+// dynamic import
+
+
 // const parent = React.createElement("div", { id: "parent", key:"parent" }, [
 //   React.createElement("div", { id: "child1", key:'sub-parent' }, [
 //     React.createElement("h1", {key:"h1"}, "Namste React"),
