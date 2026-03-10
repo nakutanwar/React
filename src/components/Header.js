@@ -31,6 +31,11 @@ const Header = ()=>{
             </Link>
           </li>
           <li>
+            <Link to="/grossary">
+            Grossary
+            </Link>
+          </li>
+          <li>
             {/* Never use anchor tag it reloads whole page */}
             {/* <a href="/about">About Us</a> */}
             <Link to='/about'>About</Link>
