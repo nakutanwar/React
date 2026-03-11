@@ -54,10 +54,11 @@ useEffect(() => {
   return listOfRestaurents.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter-container">
-        <div className="search">
-          <input
+    <div className="flex flex-row flex-wrap">
+      <div className="flex w-100 m-2 p-2">
+        <div className="search ">
+          <input 
+          className="border border-spacing-1 rounded-md mr-2 p-2"
             type="text"
             placeholder="Search here"
             value={searchText}
@@ -66,6 +67,7 @@ useEffect(() => {
             }}
           />
           <button
+          className="bg-slate-800 text-white px-2 py-1 mr-2 rounded-lg"
             onClick={() => {
               // filter the restaurant card and update the UI
               // need Search text
@@ -84,7 +86,7 @@ useEffect(() => {
         </div>
         <button
           type="button"
-          className="filter"
+          className="bg-teal-300 text-black px-2 py-1 rounded-md"
           onClick={() => {
             const filteredList = listOfRestaurents.filter(
               (res) => res?.info?.avgRating > 4.2,
@@ -95,7 +97,7 @@ useEffect(() => {
           Top Rated Button 👍
         </button>
       </div>
-      <div className="card-container">
+      <div className="flex flex-wrap justify-between">
         {allRestaurants.map((restaurant) => (
           <Link key={restaurant?.info?.id} to={'/restaurants/' + restaurant?.info?.id }><RestaurentCard  resData={restaurant} /></Link>
         ))}

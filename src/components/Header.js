@@ -16,12 +16,12 @@ const Header = ()=>{
 
 
   return(
-    <div className="header">
-      <div className="logo">
-        <img src={LOGO_URL}  className="logo-img" />
+    <div className="flex justify-between items-center p-2 shadow-md mb-2">
+      <div className="w-25">
+        <img src={LOGO_URL}  className="w-10" />
       </div>
-      <div className="nav-items">
-        <ul>
+      <div className="w-75">
+        <ul className="flex items-center gap-2">
           <li>
             Online Status : {onlineStatus ? "✅" : "🔴" }
           </li>
