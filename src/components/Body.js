@@ -54,7 +54,7 @@ useEffect(() => {
   return listOfRestaurents.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex flex-col">
       <div className="flex w-100 m-2 p-2">
         <div className="search ">
           <input 
@@ -97,7 +97,7 @@ useEffect(() => {
           Top Rated Button 👍
         </button>
       </div>
-      <div className="flex flex-wrap justify-between">
+      <div className="grid md:grid-cols-4 gap-10 m-4">
         {allRestaurants.map((restaurant) => (
           <Link key={restaurant?.info?.id} to={'/restaurants/' + restaurant?.info?.id }><RestaurentCard  resData={restaurant} /></Link>
         ))}
