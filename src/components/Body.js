@@ -1,5 +1,5 @@
-import RestaurentCard from "./RestaurantCard";
-import { useState, useEffect, use } from "react";
+import RestaurentCard,  {withPromotedLabel } from "./RestaurantCard";
+import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import  useOnlineStatus  from "../utils/useOnlineStatus"
@@ -14,6 +14,8 @@ const Body = () => {
   // never create use state in for loops/ function
   const listOfRestaurents = useRestaurantsData();
  const [allRestaurants, setAllRestaurants] = useState([]);
+ console.log(listOfRestaurents);
+ const RestaurantCardPromoted = withPromotedLabel(RestaurentCard)
 
 useEffect(() => {
   setAllRestaurants(listOfRestaurents);
@@ -21,7 +23,7 @@ useEffect(() => {
 
  const [searchText, setSearchText] = useState("");
 // when ever a  state variable updates , react triggers a reconsiliation cycle(re-render the component)
- console.log('Body Rendered');
+//  console.log('Body Rendered');
 
 
 
@@ -74,7 +76,9 @@ useEffect(() => {
 
               console.log(searchText);
                 
-             const filteredRestaurent = listOfRestaurents.filter((res)=>res?.info?.name.toLowerCase().includes(searchText.toLowerCase()));
+             const filteredRestaurent = listOfRestaurents.filter((res)=>
+  res?.name.toLowerCase().includes(searchText.toLowerCase())
+);
             setAllRestaurants(filteredRestaurent)
             }
 
@@ -88,9 +92,9 @@ useEffect(() => {
           type="button"
           className="bg-teal-300 text-black px-2 py-1 rounded-md"
           onClick={() => {
-            const filteredList = listOfRestaurents.filter(
-              (res) => res?.info?.avgRating > 4.2,
-            );
+           const filteredList = listOfRestaurents.filter(
+  (res) => res?.avgRating > 4.2
+);
             setAllRestaurants(filteredList);
           }}
         >
@@ -98,10 +102,19 @@ useEffect(() => {
         </button>
       </div>
       <div className="grid md:grid-cols-4 gap-10 m-4">
-        {allRestaurants.map((restaurant) => (
-          <Link key={restaurant?.info?.id} to={'/restaurants/' + restaurant?.info?.id }><RestaurentCard  resData={restaurant} /></Link>
-        ))}
-      </div>
+  {allRestaurants.map((restaurant) => (
+    <Link
+      key={restaurant?.id}
+      to={"/restaurants/" + restaurant?.id}
+    >
+      {restaurant?.adTrackingId ? (
+        <RestaurantCardPromoted resData={restaurant} />
+      ) : (
+        <RestaurentCard resData={restaurant} />
+      )}
+    </Link>
+  ))}
+</div>
     </div>
   );
 };
