@@ -20,10 +20,10 @@ class UserClass extends React.Component{
     }
 
     async componentDidMount(){
-        console.log(this.props.name +'Child Component Did Mount');
+        // console.log(this.props.name +'Child Component Did Mount');
         const data = await fetch('https://api.github.com/users/akshaymarch7');
         const json = await data.json();
-        console.log(json);
+        // console.log(json);
 
         this.setState({
             userInfo : json,
@@ -31,18 +31,18 @@ class UserClass extends React.Component{
         // Api Call here to get the data and update the state
     }
     componentDidUpdate(){
-        console.log('Component Did Update');
+        // console.log('Component Did Update');
     }
 
 
     componentWillUnmount(){
-        console.log('Component Will Unmount');
+        // console.log('Component Will Unmount');
     }
 
 
     render(){
 
-        console.log('Child Render');
+        // console.log('Child Render');
         const {name, location,id, avatar_url} = this.state.userInfo
         // const {count} = this.state;
 

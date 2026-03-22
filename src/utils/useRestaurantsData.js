@@ -6,7 +6,7 @@ const useRestaurantsData = () => {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
-    console.log("UseEffect Called");
+    // console.log("UseEffect Called");
     fetchData();
   }, []);
 

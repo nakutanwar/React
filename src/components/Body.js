@@ -14,7 +14,7 @@ const Body = () => {
   // never create use state in for loops/ function
   const listOfRestaurents = useRestaurantsData();
  const [allRestaurants, setAllRestaurants] = useState([]);
- console.log(listOfRestaurents);
+//  console.log(listOfRestaurents);
  const RestaurantCardPromoted = withPromotedLabel(RestaurentCard)
 
 useEffect(() => {

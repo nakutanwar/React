@@ -1,19 +1,19 @@
 import User from "./User";
 import UserClass from "./UserClass";
 import {Component} from "react";
-
+import UserContext from "../utils/UserContext.js";
 class About extends Component{
     constructor(props){
         super(props);
-        console.log('Parent Constructor');
+        // console.log('Parent Constructor');
     }  
     
     componentDidMount(){
-        console.log('Parent Component Did Mount');
+        // console.log('Parent Component Did Mount');
     }   
     
     render(){
-        console.log('Parent Render');
+        // console.log('Parent Render');
         
         return (
             <div>
@@ -22,6 +22,12 @@ class About extends Component{
                 {/* <User name={'Nakul (Functional Comp)'} /> */}
                 <UserClass name={'Nakul (class Comp)'} location={'Delhi (Class)'} />
                 {/* <UserClass name={'Elon Musk (class Comp)'} location={'Texas (Class)'} /> */}
+                <div>
+                    Logged In User : 
+                   <UserContext.Consumer>
+                       {({loggedInUser}) => <h1>{loggedInUser}</h1>}
+                    </UserContext.Consumer>
+                </div>
             </div>
         );
     }
