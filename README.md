@@ -76,3 +76,6 @@ import {<variable/component>} from path
 # 2 types of Routing in Web Apps
 - Client Side Routing
 - Server Side Routing
+
+
+# 3 Not available for some personal Reasons will continue now
