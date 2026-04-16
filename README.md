@@ -79,3 +79,12 @@ import {<variable/component>} from path
 
 
 # 3 Not available for some personal Reasons will continue now
+
+
+# Redux Store
+- Install @reduxjs/toolkit and react-redux  name of the library
+- Build our Store
+- Connect our store to app
+- Create Slice (Cart Slice)
+- Dispatch Action
+- Read the data using selector

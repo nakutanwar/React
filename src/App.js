@@ -7,6 +7,10 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+
 // import Grossary from "./components/Grossary";
 
 // chunking
@@ -144,14 +148,16 @@ const Grossary = lazy(()=>import("./components/Grossary"));
 const AppLayout = () => {
   // console.log(<Body />);
   return (
-    <div className="Container">
-      {/* //Header
-      //Body
-      //Footer */}
-      <Header />
-      <Outlet />
-      {/* <Body /> */}
-    </div>
+    <Provider store={appStore}>
+      <div className="Container">
+        {/* //Header
+        //Body
+        //Footer */}
+        <Header />
+        <Outlet />
+        {/* <Body /> */}
+      </div>
+    </Provider>
   );
 };
 
@@ -164,7 +170,8 @@ const appRouter = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/grossary", element: <Suspense fallback={<h1>Loading....</h1>}><Grossary /></Suspense> },
-      { path: '/restaurants/:resId', element:<RestaurantMenu />}
+      { path: '/restaurants/:resId', element:<RestaurantMenu />},
+      { path: '/cart' , element:<Cart></Cart>}
     ],
     errorElement: <Error />,
   }

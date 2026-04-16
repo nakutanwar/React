@@ -1,7 +1,16 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constant";
+import { addItems } from "../utils/cartSlice";
 const ResCategory = ({ data, showItems, setShowIndex }) => {
 
   const { title, itemCards } = data;
+  const dispatch = useDispatch();
+  const addToCart = (item)=>{
+    // Dispatch an Action
+    dispatch(addItems(item));
+
+    
+  }
 
   return (
     <div className="w-6/12 mx-auto my-4 bg-gray-50 shadow-lg p-4">
@@ -40,7 +49,12 @@ const ResCategory = ({ data, showItems, setShowIndex }) => {
                       alt="card image"
                       className="w-full  object-cover border border-1 border-gray-200 shadow-md rounded-md"
                     />
-                    <button className="p-2 absolute opacity-50 bg-black text-white mx-auto z-10 w-100 text-[14px] left-0 top-1 right-0 border ">ADD +</button>
+                    <button
+                    // HW know the diffrence in all 3 types
+                    //  onClick={addToCart(items)}
+                     onClick={()=> addToCart(item)}
+                    //  onClick={addToCart}
+                     className="p-2 absolute opacity-50 bg-black text-white mx-auto z-10 w-100 text-[14px] left-0 top-1 right-0 border ">ADD +</button>
                 </div>
             </div>
           ))}
