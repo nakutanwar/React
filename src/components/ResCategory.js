@@ -2,12 +2,14 @@ import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constant";
 import { addItems } from "../utils/cartSlice";
 const ResCategory = ({ data, showItems, setShowIndex }) => {
+  if (!data) return null;  // ← Add this line
 
+  // console.log(data)
   const { title, itemCards } = data;
   const dispatch = useDispatch();
-  const addToCart = (item)=>{
+  const addToCart = (items)=>{
     // Dispatch an Action
-    dispatch(addItems(item));
+    dispatch(addItems(items));
 
     
   }
@@ -18,7 +20,7 @@ const ResCategory = ({ data, showItems, setShowIndex }) => {
       {/* Header */}
       <div
         className="flex justify-between cursor-pointer"
-        onClick={setShowIndex}
+       onClick={() => setShowIndex && setShowIndex()}
       >
         <span className="font-bold text-lg">
           {title} ({itemCards?.length})
@@ -50,7 +52,7 @@ const ResCategory = ({ data, showItems, setShowIndex }) => {
                       className="w-full  object-cover border border-1 border-gray-200 shadow-md rounded-md"
                     />
                     <button
-                    // HW know the diffrence in all 3 types
+                    // HW know the diffrence in all 3
                     //  onClick={addToCart(items)}
                      onClick={()=> addToCart(item)}
                     //  onClick={addToCart}
